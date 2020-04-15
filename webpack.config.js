@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack')
 module.exports = {
   mode: 'development',
   entry: './index.js',
@@ -26,11 +27,20 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+        use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       }
     ]
   },
@@ -40,14 +50,17 @@ module.exports = {
       title: 'timg'
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
+    new webpack.HotModuleReplacementPlugin(),
+    // new MiniCssExtractPlugin({
+    //   filename: '[name].css'
+    // })
   ],
   devServer: {
     contentBase: './build',
     open: true,
     port: '8899',
+    hot: true,
+    hotOnly: true,
     proxy: {
       "/api": {
         target: 'http://localhost:9092'
@@ -56,4 +69,4 @@ module.exports = {
   }
 };
 
-// time： 1：15：30
+// time： 46

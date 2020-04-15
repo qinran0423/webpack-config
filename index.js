@@ -1,4 +1,4 @@
-import a from './a';
+import number from './a';
 import b from './b';
 import './index.css'
 import './common.scss'
@@ -9,9 +9,14 @@ img.src = timg;
 img.classList.add('timg')
 var root = document.querySelector('#root');
 root.append(img);
-a();
+number();
 b();
 
-axios.get('/api/info').then((res) => {
-  console.log(res)
+
+let a = [1, 2, 3];
+a.map((val, key) => {
+
 })
+// axios.get('/api/info').then((res) => {
+//   console.log(res)
+// })
