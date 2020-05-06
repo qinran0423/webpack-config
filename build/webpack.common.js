@@ -1,16 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack')
 module.exports = {
-  mode: 'development',
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname, './build'),
-    filename: 'index.js'
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].js'
   },
-  devtool: 'eval-cheap-module-source-map',
   module: {
     rules: [
       {
@@ -37,36 +33,32 @@ module.exports = {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
         }
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      // cacheGroups: {
+      //   defaultVendors: {
+      //     test: /[\\/]node_modules[\\/]/,
+      //     priority: -10
+      //   },
+      //   default: {
+      //     minChunks: 2,
+      //     priority: -20,
+      //     reuseExistingChunk: true
+      //   }
+      // }
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
-      title: 'timg'
     }),
-    new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    // new MiniCssExtractPlugin({
-    //   filename: '[name].css'
-    // })
-  ],
-  devServer: {
-    contentBase: './build',
-    open: true,
-    port: '8899',
-    hot: true,
-    hotOnly: true,
-    proxy: {
-      "/api": {
-        target: 'http://localhost:9092'
-      }
-    }
-  }
+    new CleanWebpackPlugin()
+  ]
 };
 
 // time： 46

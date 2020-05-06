@@ -1,22 +1,14 @@
-import number from './a';
-import b from './b';
-import './index.css'
-import './common.scss'
-import timg from './img/timg.jpg'
-import axios from 'axios';
-var img = new Image();
-img.src = timg;
-img.classList.add('timg')
-var root = document.querySelector('#root');
-root.append(img);
-number();
-b();
 
-
-let a = [1, 2, 3];
-a.map((val, key) => {
+function getComponent() {
+  return import(/*webpackChunkName: 'lodash'*/'lodash').then(({ default: _ }) => {
+    var element = document.createElement('div');
+    element.innerHTML = _.join(['Dell', 'Lee'], '-');
+    return element
+  })
+}
+document.addEventListener('click', () => {
+  getComponent().then(element => {
+    document.body.appendChild(element);
+  })
 
 })
-// axios.get('/api/info').then((res) => {
-//   console.log(res)
-// })
