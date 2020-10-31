@@ -7,6 +7,9 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].js'
   },
+  resolveLoader: {
+    modules: ["node_modules", "./myloaders"],
+  },
   module: {
     rules: [
       {
@@ -28,6 +31,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.less$/,
+        use: ['ran-style-loader', 'ran-css-loader', 'ran-less-loader']
       },
       {
         test: /\.js$/,
