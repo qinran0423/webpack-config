@@ -14,4 +14,4 @@
 // })
 
 
-import common from  './common.less'
+import common from  './common.scss'

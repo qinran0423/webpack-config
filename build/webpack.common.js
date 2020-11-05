@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const txtWebpackPlugin = require('../myPlugins/txt-webpack-plugin')
+const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -30,11 +32,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.less$/,
-        use: ['ran-style-loader', 'ran-css-loader', 'ran-less-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
         test: /\.js$/,
@@ -64,7 +62,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin (),
+    new txtWebpackPlugin({
+      name: 'randy'
+    })
   ]
 };
 

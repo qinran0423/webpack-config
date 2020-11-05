@@ -1,0 +1,9 @@
+#root {
+  width: 500px;
+  height: 500px;
+  background: blue;
+  background: url(images/timg_12273e19296d31cf5b796a019e8e2a30.jpg) 200px 200px no-repeat; }
+  #root .timg {
+    width: 100px;
+    height: 200px; }
+

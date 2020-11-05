@@ -36,6 +36,7 @@
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
+    "dev": "webpack --config ./build/webpack.dev.js",
     "serve": "webpack-dev-server --config ./build/webpack.dev.js",
     "mpa": "webpack --config ./webpack.mpa.config.js",
     "dev-build": "webpack --config ./build/webpack.dev.js",
