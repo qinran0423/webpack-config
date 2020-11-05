@@ -21,7 +21,7 @@ class TxtWebpackPlugin {
       
       compilation.assets['new.txt'] ={
         source: function() {
-          return `bundel文件的数量： ${arr.length} \n${str} `
+          return `bundle文件的数量： ${arr.length} \n${str} `
         },
         size: function() {
           return 1024
