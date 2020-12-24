@@ -1,7 +1,9 @@
-手动配置 webpack
-entry
-output
-moudule
-plugins
-devtool 映射
-devServer mock 代理
+##webpack 配置核心概念
+* chunk: 指代码块，⼀个 chunk 可能由多个模块组合⽽成，也⽤于代码合并与分割。
+* bundle: 资源经过Webpack 流程解析编译后最终结输出的成果⽂件。
+* entry:顾名思义，就是⼊⼝起点，⽤来告诉webpack⽤哪个⽂件作为构建依赖图的起点。webpack会根据entry递归的去寻找依赖，每个依赖都将被它处理，最后输出到打包成果中。
+* output：output配置描述了webpack打包的输出配置，包含输出⽂件的命名、位置等信息。
+* loader：默认情况下，webpack仅⽀持.js ⽂件，通过loader，可以让它解析其他类型的⽂件，充当翻译官的⻆⾊。理论上只要有相应的loader，就可以处理任何类型的⽂件。
+* plugin：loader主要的职责是让webpack认识更多的⽂件类型，⽽plugin的职责则是让其可以控制构建流程，从⽽执⾏⼀些特殊的任务。插件的功能⾮常强⼤，可以完成各种各样的任务
+* mode：4.0开始，webpack⽀持零配置，旨在为开发⼈员减少上⼿难度，同时加⼊了mode的概念，⽤于指定打包的⽬标环境，以便在打包的过程中启⽤webpack针对不同的环境下内置的优化。
+
