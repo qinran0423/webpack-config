@@ -6,6 +6,9 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'main.js'
   },
+  resolveLoader: {
+    modules: ['node_modules',  './myLoaders']
+  },
   module: {
     rules: [
       {
@@ -14,7 +17,16 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        use: ['hzol-style-loader', 'hzol-css-loader', 'hzol-less-loader']
+      },
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'replaceLoader',
+          options: {
+            name: 'randy'
+          }
+        }
       }
     ]
   },

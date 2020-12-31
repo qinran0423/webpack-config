@@ -1,1 +1,2 @@
-import css from './index.less'
+
+import less from './index.less'
