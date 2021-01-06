@@ -1,6 +1,7 @@
+
 module.exports = function(source) {
-  return `const tag = document.createElement('style');
-    tag.innerHTML = ${source};
-    document.head.appendChild(tag)
+  return `const Tag = document.createElement('style');
+    Tag.innerHTML = ${source};
+    document.head.appendChild(Tag);
   `
 }

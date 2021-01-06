@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 module.exports = {
   entry : "./src/index.js",
   output: {
@@ -7,7 +7,7 @@ module.exports = {
     filename: 'main.js'
   },
   resolveLoader: {
-    modules: ['node_modules',  './myLoaders']
+    modules: ['node_modules', './myLoaders']
   },
   module: {
     rules: [
@@ -22,9 +22,9 @@ module.exports = {
       {
         test: /\.js$/,
         use: {
-          loader: 'replaceLoader',
+          loader: 'replace-loader',
           options: {
-            name: 'randy'
+            name: 'haizol'
           }
         }
       }

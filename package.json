@@ -11,7 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/qinran0423/webpack-config.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -19,14 +18,11 @@
   },
   "homepage": "https://github.com/qinran0423/webpack-config#readme",
   "devDependencies": {
-    "autoprefixer": "^10.1.0",
     "css-loader": "^5.0.1",
     "less": "^4.0.0",
-    "less-loader": "^7.1.0",
-    "postcss": "^8.2.1",
-    "postcss-loader": "^4.1.0",
+    "less-loader": "^7.2.1",
     "style-loader": "^2.0.0",
-    "webpack": "^4.44.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
