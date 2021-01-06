@@ -3,7 +3,6 @@
 // loader必须有返回值
 
 module.exports = function(source) {
-  console.log(this, this.query);
   const content = source.replace('hello', 'hahhaha')
   this.callback(null, content)
   // return source.replace('hello', '你好')

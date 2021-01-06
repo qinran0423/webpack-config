@@ -1,4 +1,8 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack')
 module.exports = {
   entry : "./src/index.js",
   output: {
@@ -9,6 +13,12 @@ module.exports = {
   resolveLoader: {
     modules: ['node_modules',  './myLoaders']
   },
+  devServer: {
+    contentBase: './dist',
+    open: true,
+    port: 8899,
+    hot: true,
+  },
   module: {
     rules: [
       {
@@ -17,7 +27,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ['hzol-style-loader', 'hzol-css-loader', 'hzol-less-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
       },
       {
         test: /\.js$/,
@@ -27,8 +37,30 @@ module.exports = {
             name: 'randy'
           }
         }
+      },
+      {
+        test: /\.(gif|png|jpe?g)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: "[name].[ext]",
+            outputPath:"images/",
+            publicPath: '../images'
+          }
+        }
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
+    }),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css'
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
   mode: 'development'
 }
