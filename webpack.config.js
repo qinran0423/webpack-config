@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack')
+
+const TxtWebpackPlugin = require('./myPlugin/txt-webpack-plugin')
+
 module.exports = {
   entry : "./src/index.js",
   output: {
@@ -15,7 +18,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist',
-    open: true,
+    // open: true,
     port: 8899,
     hot: true,
   },
@@ -56,11 +59,12 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new TxtWebpackPlugin({
+      name: 'randy'
+    })
   ],
   mode: 'development'
 }

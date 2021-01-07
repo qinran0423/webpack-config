@@ -1,0 +1,4 @@
+body div:nth-of-type(odd) {
+  background: red;
+}
+
