@@ -12,6 +12,9 @@ module.exports = {
   resolveLoader: {
     modules: ["node_modules", "./myloaders"],
   },
+  resolve:{
+    extensions: ['.js','.json']
+  } ,  
   module: {
     rules: [
       {
@@ -37,8 +40,9 @@ module.exports = {
       {
         test: /\.js$/,
         use: {
-          loader: 'babel-loader',
-        }
+          loader: 'babel-loader?cacheDirectory',
+        },
+        inclueds: path.resolve(__dirname, 'src')
       }
     ]
   },

@@ -40,7 +40,8 @@
     "serve": "webpack-dev-server --config ./build/webpack.dev.js",
     "mpa": "webpack --config ./webpack.mpa.config.js",
     "dev-build": "webpack --config ./build/webpack.dev.js",
-    "build": "webpack --config ./build/webpack.prod.js"
+    "build": "webpack --config ./build/webpack.prod.js",
+    "build:watch": "webpack --config ./webpack.config.watch.js"
   },
   "author": "",
   "license": "ISC"

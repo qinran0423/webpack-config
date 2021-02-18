@@ -14,4 +14,11 @@
 // })
 
 
-import common from  './common.scss'
+// import common from  './common.scss'
+function render() { 
+  div = document.createElement('div') 
+  div.innerHTML = 'Hello World01111'; 
+  document.body.appendChild(div) 
+} 
+console.log('aaa1');
+render() 
